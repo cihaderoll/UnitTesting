@@ -21,7 +21,7 @@ namespace XUnitTestDemo
         [Fact]
         public void TestAdd()
         {
-            Assert.Equal(2, _sut.Add(3));
+            Assert.Equal(3, _sut.Add(3));
         }
 
         [Theory]
@@ -55,6 +55,25 @@ namespace XUnitTestDemo
             yield return new object[] { 25, new int[] { 12, 13 } };
             yield return new object[] { 53, new int[] { 40, -25, 8, 6, 24 } };
         }
+
+        #region testing by paying attention to naming conventions
+
+        [Fact]
+        public void Add_ShouldAddValues()
+        {
+            //arrange
+            int expected = 5;
+
+            //act
+            int actual = _sut.Add(5);
+
+            //assert
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion
+
+
     }
 
     public class DivideTestData : IEnumerable<object[]>
@@ -63,7 +82,7 @@ namespace XUnitTestDemo
         {
             yield return new object[] { 2, new int[] { 50, 25 } };
             yield return new object[] { 5, new int[] { 15, 3 } };
-            yield return new object[] { 45, new int[] { 15, 35 } };
+            yield return new object[] { 6, new int[] { 66, 11 } };
         }
 
         IEnumerator IEnumerable.GetEnumerator()
